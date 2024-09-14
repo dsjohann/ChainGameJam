@@ -48,15 +48,19 @@ public class ChainObject : MonoBehaviour
             if (differential.magnitude > chainThreshold) {
                 offset -= differential * adjustmentSnappiness * Time.deltaTime;
             }
-            
+
             // Turn gravity off
-            RB.gravityScale = 0;
+            GetComponent<TarodevController.ObjectController>().enabled = false;
+            GetComponent<ObjectCarryable>().enabled = false;
         }
         else {
             chainClone.SetActive(false);
             // Turn gravity on
             RB.gravityScale = 1;
             wasChained = false;
+            
+            GetComponent<TarodevController.ObjectController>().enabled = true;
+            GetComponent<ObjectCarryable>().enabled = true;
         }
     }
 }
