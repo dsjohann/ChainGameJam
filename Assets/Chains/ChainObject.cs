@@ -58,12 +58,19 @@ public class ChainObject : MonoBehaviour
 
         if (driver) {
 
-            // chain pos
-            chainClone.SetActive(true);
-            chainClone.transform.position = (transform.position + driver.transform.position) / 2f;
-            chainClone.GetComponent<SpriteRenderer>().size = new Vector2((transform.position - driver.transform.position).magnitude, 0.25f);
-            chainClone.transform.rotation = Quaternion.FromToRotation(transform.right, (transform.position - driver.transform.position));
-
+            // Only one chain renders if overlapping
+            if (driver.GetComponent<ChainObject>() && driver.GetComponent<ChainObject>().driver == gameObject && driver.transform.position.y > transform.position.y)
+            {
+                chainClone.SetActive(false);
+            }
+            else
+            {
+                chainClone.SetActive(true);
+                chainClone.transform.position = (transform.position + driver.transform.position) / 2f;
+                chainClone.GetComponent<SpriteRenderer>().size = new Vector2((transform.position - driver.transform.position).magnitude, 0.25f);
+                chainClone.transform.rotation = Quaternion.FromToRotation(transform.right, (transform.position - driver.transform.position));
+            }
+             
             if (driver.tag != "Player")
             {
                 // positional code
