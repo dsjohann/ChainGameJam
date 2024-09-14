@@ -6,6 +6,7 @@ public class ChainObject : MonoBehaviour
 {
     public GameObject driver;
     public GameObject chainPrefab;
+    public GameObject chainedSprite;
     public float chainSnappiness;
     public float chainThreshold;
     public float adjustmentSnappiness;
@@ -14,7 +15,7 @@ public class ChainObject : MonoBehaviour
     private GameObject chainClone;
     private bool wasChained;
     private Vector3 offset;
-
+    private GameObject chainedSpriteClone;
 
 
     // Start is called before the first frame update
@@ -25,33 +26,42 @@ public class ChainObject : MonoBehaviour
         //driver = null;
         RB = GetComponent<Rigidbody2D>();
         chainClone = Instantiate(chainPrefab);
+        chainedSpriteClone = Instantiate(chainedSprite, transform);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (driver && !wasChained) {
+        if (driver && !wasChained && driver.tag != "Player") {
             offset = transform.position - driver.transform.position;
             wasChained = true;
         }
 
-        if (driver)
-        {
+        if (driver) {
+
             // chain pos
             chainClone.SetActive(true);
             chainClone.transform.position = (transform.position + driver.transform.position) / 2f;
             chainClone.GetComponent<SpriteRenderer>().size = new Vector2((transform.position - driver.transform.position).magnitude, 0.25f);
             chainClone.transform.rotation = Quaternion.FromToRotation(transform.right, (transform.position - driver.transform.position));
 
-            Vector3 differential = driver.transform.position + offset - transform.position;
-            RB.velocity = differential * chainSnappiness;
-            if (differential.magnitude > chainThreshold) {
-                offset -= differential * adjustmentSnappiness * Time.deltaTime;
+            if (driver.tag != "Player")
+            {
+                // positional code
+                Vector3 differential = driver.transform.position + offset - transform.position;
+                RB.velocity = differential * chainSnappiness;
+                if (differential.magnitude > chainThreshold)
+                {
+                    offset -= differential * adjustmentSnappiness * Time.deltaTime;
+                }
+
+                // Turn gravity off
+                GetComponent<TarodevController.ObjectController>().enabled = false;
+                GetComponent<ObjectCarryable>().enabled = false;
             }
 
-            // Turn gravity off
-            GetComponent<TarodevController.ObjectController>().enabled = false;
-            GetComponent<ObjectCarryable>().enabled = false;
+            chainedSpriteClone.SetActive(true);
+        
         }
         else {
             chainClone.SetActive(false);
@@ -61,6 +71,7 @@ public class ChainObject : MonoBehaviour
             
             GetComponent<TarodevController.ObjectController>().enabled = true;
             GetComponent<ObjectCarryable>().enabled = true;
+            chainedSpriteClone.SetActive(false);
         }
     }
 }
