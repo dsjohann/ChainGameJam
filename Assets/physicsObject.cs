@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class playerMovement : MonoBehaviour
+public class physicsObject : MonoBehaviour
 {
+    {
     public LayerMask mask;
 
     public float speed;
@@ -43,7 +42,12 @@ public class playerMovement : MonoBehaviour
 
     private bool Grounded()
     {
-        RaycastHit2D groundHit = Physics2D.Raycast()
+        RaycastHit2D groundHit = Physics2D.Raycast(col.bounds.center, -transform.up, col.bounds.extents.y + .01f, mask);
+        if (groundHit.collider != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void AssignActualVelocities()
@@ -51,8 +55,8 @@ public class playerMovement : MonoBehaviour
         //Horizontal
         if (plannedVelocity.x > 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, transform.right, col.bounds.extents.x + (plannedVelocity.x*Time.deltaTime), mask);
-            Debug.DrawRay(col.bounds.center, transform.right * (col.bounds.extents.x + (plannedVelocity.x*Time.deltaTime)));
+            RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, transform.right, col.bounds.extents.x + (plannedVelocity.x * Time.deltaTime), mask);
+            Debug.DrawRay(col.bounds.center, transform.right * (col.bounds.extents.x + (plannedVelocity.x * Time.deltaTime)));
             if (hit.collider != null)
             {
                 plannedVelocity.x = 0;
@@ -98,6 +102,6 @@ public class playerMovement : MonoBehaviour
 
         rb.position += displacement;
         rb.velocity = plannedVelocity;
-        
+
     }
 }
