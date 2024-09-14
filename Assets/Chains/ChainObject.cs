@@ -16,11 +16,13 @@ public class ChainObject : MonoBehaviour
     private bool wasChained;
     private Vector3 offset;
     private GameObject chainedSpriteClone;
-
+    private Vector3 lockPosition;
+    private bool locked;
 
     // Start is called before the first frame update
     void Start()
     {
+        locked = false;
         wasChained = false;
         offset = new Vector3 (0, 0, 0);
         //driver = null;
@@ -32,6 +34,23 @@ public class ChainObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        List<GameObject> chainLoopList = new List<GameObject>();
+        chainLoopList.Add(gameObject);
+        if (checkLooped(chainLoopList)) {
+            if (!locked)
+            {
+                Debug.Log("LOCKED");
+                GetComponent<TarodevController.ObjectController>().enabled = false;
+                GetComponent<ObjectCarryable>().enabled = false;
+                lockPosition = transform.position;
+                RB.bodyType = RigidbodyType2D.Static;
+                locked = true;
+            }
+            else {
+                transform.position = lockPosition;
+            }
+        }
+
         if (driver && !wasChained && driver.tag != "Player") {
             offset = transform.position - driver.transform.position;
             wasChained = true;
@@ -66,12 +85,29 @@ public class ChainObject : MonoBehaviour
         else {
             chainClone.SetActive(false);
             // Turn gravity on
-            RB.gravityScale = 1;
             wasChained = false;
             
             GetComponent<TarodevController.ObjectController>().enabled = true;
             GetComponent<ObjectCarryable>().enabled = true;
             chainedSpriteClone.SetActive(false);
+        }
+    }
+
+    public bool checkLooped(List<GameObject> seen) {
+        if (!driver || driver.tag == "Player")
+        {
+            return false;
+        }
+        else
+        {
+            if (seen.Contains(driver))
+            {
+                return true;
+            }
+            else {
+                seen.Add(driver);
+                return driver.GetComponent<ChainObject>().checkLooped(seen);
+            }
         }
     }
 }
