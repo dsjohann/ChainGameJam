@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 893168293770704217}
   - component: {fileID: 7704552410483878589}
   - component: {fileID: 7591876459351921125}
+  - component: {fileID: 5856367321362278186}
   m_Layer: 7
   m_Name: Block
   m_TagString: Untagged
@@ -112,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7704552410483878589
 BoxCollider2D:
@@ -172,3 +173,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 649628382b910c840bc7a43c8129a748, type: 2}
+--- !u!114 &5856367321362278186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274399389775153924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faad13439a590d942a3cb992f524bc3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarrierMask:
+    serializedVersion: 2
+    m_Bits: 192
+  velocityMod: 0
