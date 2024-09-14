@@ -41,7 +41,6 @@ namespace TarodevController
         {
             _time += Time.deltaTime;
 
-            Debug.Log(_rb.velocity);
         }
 
         private void FixedUpdate()
@@ -61,8 +60,15 @@ namespace TarodevController
         {
             Physics2D.queriesStartInColliders = false;
 
+            bool groundHit = false;
+
             // Ground and Ceiling
-            bool groundHit = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
+            RaycastHit2D groundCollision = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
+            if (groundCollision.collider != null && groundCollision.collider.gameObject != gameObject)
+            {
+                groundHit = true;
+            }
+
             bool ceilingHit = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
 
             // Hit a Ceiling
@@ -123,7 +129,7 @@ namespace TarodevController
 
         #endregion
 
-        private void ApplyMovement() => _rb.velocity = _frameVelocity;
+        private void ApplyMovement() => _rb.velocity = new Vector2(_rb.velocity.x, _frameVelocity.y);
 
 #if UNITY_EDITOR
         private void OnValidate()
