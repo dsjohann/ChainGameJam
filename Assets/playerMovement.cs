@@ -27,24 +27,12 @@ public class playerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         plannedVelocity.x = Input.GetAxis("Horizontal") * speed;
-
-        GravityTime();
+        plannedVelocity.y = Input.GetAxis("Vertical") * speed;
 
         AssignActualVelocities();
     }
 
-    private void GravityTime()
-    {
-        if (Grounded())
-        {
-
-        }
-    }
-
-    private bool Grounded()
-    {
-        RaycastHit2D groundHit = Physics2D.Raycast()
-    }
+  
 
     private void AssignActualVelocities()
     {

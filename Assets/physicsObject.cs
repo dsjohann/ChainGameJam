@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class physicsObject : MonoBehaviour
 {
-    {
+
     public LayerMask mask;
 
     public float speed;
+    public float gravScale;
+    public float groundExtent;
 
     private Vector2 plannedVelocity;
     private Vector2 displacement;
@@ -25,8 +30,6 @@ public class physicsObject : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        plannedVelocity.x = Input.GetAxis("Horizontal") * speed;
-
         GravityTime();
 
         AssignActualVelocities();
@@ -36,15 +39,23 @@ public class physicsObject : MonoBehaviour
     {
         if (Grounded())
         {
+            plannedVelocity.y = 0;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
 
+        }
+        else
+        {
+            plannedVelocity.y -= gravScale;
         }
     }
 
-    private bool Grounded()
+    public bool Grounded()
     {
-        RaycastHit2D groundHit = Physics2D.Raycast(col.bounds.center, -transform.up, col.bounds.extents.y + .01f, mask);
+        RaycastHit2D groundHit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, -transform.up, mask, 0, groundExtent);
+        Debug.DrawRay(col.bounds.center, -transform.up * (col.bounds.extents.y + groundExtent), Color.red);
         if (groundHit.collider != null)
         {
+            displacement.y = -(groundHit.distance - col.bounds.extents.y);
             return true;
         }
         return false;
@@ -52,9 +63,14 @@ public class physicsObject : MonoBehaviour
 
     private void AssignActualVelocities()
     {
+
+
         //Horizontal
         if (plannedVelocity.x > 0)
         {
+            checkForWall(transform.right, plannedVelocity.x, 1);
+
+
             RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, transform.right, col.bounds.extents.x + (plannedVelocity.x * Time.deltaTime), mask);
             Debug.DrawRay(col.bounds.center, transform.right * (col.bounds.extents.x + (plannedVelocity.x * Time.deltaTime)));
             if (hit.collider != null)
@@ -62,7 +78,6 @@ public class physicsObject : MonoBehaviour
                 plannedVelocity.x = 0;
                 displacement.x = hit.distance - col.bounds.extents.x;
             }
-            Debug.Log(hit.collider);
         }
         else if (plannedVelocity.x < 0)
         {
@@ -73,7 +88,6 @@ public class physicsObject : MonoBehaviour
                 plannedVelocity.x = 0;
                 displacement.x = -(hit.distance - col.bounds.extents.x);
             }
-            Debug.Log(hit.collider);
         }
 
         //Vertical
@@ -86,7 +100,6 @@ public class physicsObject : MonoBehaviour
                 plannedVelocity.y = 0;
                 displacement.y = hit.distance - col.bounds.extents.y;
             }
-            Debug.Log(hit.collider);
         }
         else if (plannedVelocity.y < 0)
         {
@@ -97,11 +110,22 @@ public class physicsObject : MonoBehaviour
                 plannedVelocity.y = 0;
                 displacement.y = -(hit.distance - col.bounds.extents.y);
             }
-            Debug.Log(hit.collider);
         }
 
+        Debug.Log(plannedVelocity);
         rb.position += displacement;
         rb.velocity = plannedVelocity;
 
+    }
+
+    private bool checkForWall(Vector2 direction, float respectivePlannedVelocity, float sign)
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, direction, (sign * respectivePlannedVelocity * Time.deltaTime), mask, 0, groundExtent);
+        Debug.DrawRay(col.bounds.center, direction * (col.bounds.extents.y + (respectivePlannedVelocity * Time.deltaTime)));
+        if (hit.collider != null)
+        {
+            respectivePlannedVelocity = 0;
+            displacement.y = sign(hit.distance - col.bounds.extents.y);
+        }
     }
 }
