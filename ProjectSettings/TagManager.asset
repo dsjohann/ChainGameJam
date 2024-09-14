@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2594685303
+    locked: 0
+  - name: Blocks
+    uniqueID: 17275183
+    locked: 0
+  - name: Chains
+    uniqueID: 2992750801
+    locked: 0
+  - name: BlocksFR?
+    uniqueID: 440348651
+    locked: 0
+  - name: Chained
+    uniqueID: 1162803847
+    locked: 0
+  - name: Player
+    uniqueID: 4205205895
+    locked: 0
+  - name: 
+    uniqueID: 1782685557
+    locked: 0
