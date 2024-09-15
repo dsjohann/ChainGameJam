@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.96}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &7591876459351921125
 MonoBehaviour:
@@ -207,4 +207,4 @@ MonoBehaviour:
   chainedSprite: {fileID: 3578085237671992809, guid: 56a628aa63bb3124db79b96495d386cf, type: 3}
   chainSnappiness: 50
   chainThreshold: 0.2
-  adjustmentSnappiness: 1
+  adjustmentSnappiness: 10
