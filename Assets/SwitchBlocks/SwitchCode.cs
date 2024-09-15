@@ -7,10 +7,12 @@ public class SwitchCode : MonoBehaviour
     public List<GameObject> connectedBlocks;
     public float activeArea;
     private LayerMask layers;
+    private int lastState;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastState = -1;
         layers = LayerMask.GetMask("Block", "Player");
     }
 
@@ -22,7 +24,23 @@ public class SwitchCode : MonoBehaviour
         bool currentState = Physics2D.OverlapArea(transform.position + areaVector, transform.position - areaVector, layers);
         
         foreach (GameObject i in connectedBlocks) {
-            i.transform.Find("SolidBlock").gameObject.SetActive(currentState ^ i.GetComponent<StateHolder>().invertedState);
+            bool iSetState = currentState ^ i.GetComponent<StateHolder>().invertedState;
+            if (currentState || lastState == -1)
+            {
+                i.transform.Find("SolidBlock").gameObject.SetActive(iSetState);
+            }
+            else if (lastState == 1)
+            {
+                i.transform.Find("SolidBlock").gameObject.SetActive(iSetState);
+            }
+        }
+
+        if (currentState)
+        {
+            lastState = 1;
+        }
+        else {
+            lastState = 0;
         }
     }
 }
