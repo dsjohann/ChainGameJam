@@ -20,7 +20,7 @@ public class ChainPowers : MonoBehaviour
     void Update()
     {
         GameObject closest = nearby();
-        if (Input.GetKeyDown(KeyCode.Z) && closest && !chainStart && !closest.GetComponent<ChainObject>().driver) {
+        if (Input.GetButtonDown("lock") && closest && !chainStart && !closest.GetComponent<ChainObject>().driver) {
             chainStart = true;
             chained = closest;
             chained.GetComponent<ChainObject>().driver = gameObject;
