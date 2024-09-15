@@ -25,7 +25,7 @@ public class SwitchCode : MonoBehaviour
         if ( currentState != lastState)
         {
             foreach (GameObject i in connectedBlocks) {
-                i.SetActive(!currentState);
+                i.transform.Find("SolidBlock").gameObject.SetActive(!currentState);
             }
             lastState = currentState;
         }
