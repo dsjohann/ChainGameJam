@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2594685303
     locked: 0
+  - name: Starting Chains
+    uniqueID: 1782685557
+    locked: 0
   - name: Blocks
     uniqueID: 17275183
     locked: 0
@@ -58,7 +61,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4205205895
-    locked: 0
-  - name: 
-    uniqueID: 1782685557
     locked: 0
