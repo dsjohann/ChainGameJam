@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelReseter : MonoBehaviour
 {
     private GameObject player;
+    public float deathZone;
 
     void Start() {
         player = GameObject.Find("Player Controller");
@@ -14,7 +15,15 @@ public class LevelReseter : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetButtonDown("Reset") || player.transform.position.y < -6)
+        if (Input.GetButtonDown("Reset"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (player.transform.position.y < deathZone)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
