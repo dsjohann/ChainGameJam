@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2407266908673570671}
   - component: {fileID: 1098634028235218464}
   - component: {fileID: 915818488211966950}
+  - component: {fileID: 7461146211966151711}
   m_Layer: 0
   m_Name: Next Level Loader
   m_TagString: Untagged
@@ -91,6 +92,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &7461146211966151711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891454210899409960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb705004524073244b46962381adff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathZone: -7
 --- !u!1 &7087400412561977258
 GameObject:
   m_ObjectHideFlags: 0
