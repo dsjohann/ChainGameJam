@@ -209,3 +209,4 @@ MonoBehaviour:
   offByMin: 0.2
   standStillTolerance: 0.01
   timeToShift: 0.1
+  panicCorrect: 0.5

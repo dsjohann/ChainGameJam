@@ -12,6 +12,7 @@ public class ChainObject : MonoBehaviour
     public float offByMin;
     public float standStillTolerance;
     public float timeToShift;
+    public float panicCorrect;
 
     private Rigidbody2D RB;
     private GameObject chainClone;
@@ -133,7 +134,7 @@ public class ChainObject : MonoBehaviour
         }
         lastOffBy = offBy;
 
-        if (timeOffBy > timeToShift)
+        if (timeOffBy > timeToShift || offBy.magnitude >= panicCorrect)
         {
             offset -= offBy;
         }
