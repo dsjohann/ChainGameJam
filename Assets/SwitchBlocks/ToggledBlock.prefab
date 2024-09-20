@@ -261,3 +261,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertedState: 0
+  doorHoldingRange: 0.4
+  blockState: 0

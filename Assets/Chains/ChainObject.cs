@@ -8,8 +8,11 @@ public class ChainObject : MonoBehaviour
     public GameObject chainPrefab;
     public GameObject chainedSprite;
     public float chainSnappiness;
-    public float chainThreshold;
-    public float adjustmentSnappiness;
+
+    public float offByMin;
+    public float standStillTolerance;
+    public float timeToShift;
+    public float panicCorrect;
 
     private Rigidbody2D RB;
     private GameObject chainClone;
@@ -18,13 +21,17 @@ public class ChainObject : MonoBehaviour
     private GameObject chainedSpriteClone;
     private Vector3 lockPosition;
     private bool locked;
+    private Vector3 lastOffBy;
+    private float timeOffBy;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastOffBy = new Vector3(0, 0, 0);
         locked = false;
         wasChained = false;
         offset = new Vector3 (0, 0, 0);
+        timeOffBy = 0;
         //driver = null;
         RB = GetComponent<Rigidbody2D>();
         chainClone = Instantiate(chainPrefab);
@@ -76,10 +83,7 @@ public class ChainObject : MonoBehaviour
                 // positional code
                 Vector3 differential = driver.transform.position + offset - transform.position;
                 RB.velocity = differential * chainSnappiness;
-                if (differential.magnitude > chainThreshold)
-                {
-                    offset -= differential * adjustmentSnappiness * Time.deltaTime;
-                }
+                checkAndChange(differential);
 
                 // Turn gravity off
                 GetComponent<TarodevController.ObjectController>().enabled = false;
@@ -115,6 +119,24 @@ public class ChainObject : MonoBehaviour
                 seen.Add(driver);
                 return driver.GetComponent<ChainObject>().checkLooped(seen);
             }
+        }
+    }
+
+    void checkAndChange(Vector3 offBy)
+    {
+        if (offBy.magnitude > offByMin && (lastOffBy - offBy).magnitude < standStillTolerance)
+        {
+            timeOffBy += Time.deltaTime;
+        }
+        else
+        {
+            timeOffBy = 0;
+        }
+        lastOffBy = offBy;
+
+        if (timeOffBy > timeToShift || offBy.magnitude >= panicCorrect)
+        {
+            offset -= offBy;
         }
     }
 }

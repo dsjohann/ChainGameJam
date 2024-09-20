@@ -25,13 +25,9 @@ public class SwitchCode : MonoBehaviour
         
         foreach (GameObject i in connectedBlocks) {
             bool iSetState = currentState ^ i.GetComponent<StateHolder>().invertedState;
-            if (currentState || lastState == -1)
+            if (currentState || lastState == -1 || lastState == 1)
             {
-                i.transform.Find("SolidBlock").gameObject.SetActive(iSetState);
-            }
-            else if (lastState == 1)
-            {
-                i.transform.Find("SolidBlock").gameObject.SetActive(iSetState);
+                i.GetComponent<StateHolder>().blockState = iSetState;
             }
         }
 
