@@ -69,7 +69,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -336,7 +336,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -564,6 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3432348308269556986}
+  - component: {fileID: 1099995980276451418}
   m_Layer: 0
   m_Name: Level Parent
   m_TagString: Untagged
@@ -591,6 +592,19 @@ Transform:
   - {fileID: 2146901413935142714}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099995980276451418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764845452612762117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8addbe2a000f7148a66a437191a96af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 4900644423119351628, guid: 75c25cf74a3014e4e8514669734ddc81, type: 3}
 --- !u!1001 &4369343802379935829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,11 +677,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1011260985086471632, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.375642
+      value: 0.7177
       objectReference: {fileID: 0}
     - target: {fileID: 1011260985086471632, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7089848
+      value: 0.0155
       objectReference: {fileID: 0}
     - target: {fileID: 1011260985086471632, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -704,6 +718,14 @@ PrefabInstance:
     - target: {fileID: 3234328766611339545, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942353354932977731, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
+      propertyPath: m_Size.x
+      value: 24.163712
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942353354932977731, guid: 17c9d24b9c119ac4f96ee3082872ac52, type: 3}
+      propertyPath: m_Size.y
+      value: 13.035721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
