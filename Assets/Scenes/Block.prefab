@@ -207,6 +207,6 @@ MonoBehaviour:
   chainedSprite: {fileID: 3578085237671992809, guid: 56a628aa63bb3124db79b96495d386cf, type: 3}
   chainSnappiness: 50
   offByMin: 0.2
-  standStillTolerance: 0.01
+  standStillTolerance: 0.0001
   timeToShift: 0.1
   panicCorrect: 0.5
