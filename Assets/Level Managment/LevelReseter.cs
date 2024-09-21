@@ -15,7 +15,7 @@ public class LevelReseter : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetButtonDown("Reset"))
+        if (Input.GetButton("Reset"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
