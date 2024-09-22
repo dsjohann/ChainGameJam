@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartChains : MonoBehaviour
 {
     public float chainSpeed;
+    public float chainGrow;
     public bool retract = false;
     public bool doneRetracting = false;
 
@@ -14,6 +15,7 @@ public class StartChains : MonoBehaviour
         if (transform.localScale.x > .01f && retract)
         {
             transform.localScale = new Vector3(transform.localScale.x * chainSpeed, 1, 1);
+            chainSpeed -= chainGrow;
         }
         else if (retract == true)
         {
