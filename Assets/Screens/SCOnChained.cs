@@ -19,7 +19,6 @@ public class SCOnChained : MonoBehaviour
     public string controllerText;
 
     public GameObject[] objectsToWatch;
-    public LayerMask layer;
 
     private List<ChainObject> chainObjectScripts;
 

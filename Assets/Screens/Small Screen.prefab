@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3504196042509189492, guid: a702858c9ebb8574b9b863ef1c30e8ce, type: 3}
       propertyPath: m_text
-      value: Space to jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3504196042509189492, guid: a702858c9ebb8574b9b863ef1c30e8ce, type: 3}
       propertyPath: m_fontSize
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684489109835479891, guid: a702858c9ebb8574b9b863ef1c30e8ce, type: 3}
       propertyPath: m_Name
-      value: Screen Variant
+      value: Small Screen
       objectReference: {fileID: 0}
     - target: {fileID: 5154258117074796475, guid: a702858c9ebb8574b9b863ef1c30e8ce, type: 3}
       propertyPath: m_AnchoredPosition.x
