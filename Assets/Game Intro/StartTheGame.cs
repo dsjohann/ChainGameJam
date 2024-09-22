@@ -9,8 +9,15 @@ public class StartTheGame : MonoBehaviour
     public GameObject player;
     public GameObject text;
 
+    public float startShake;
+    public float shakeSpeedMult;
+    public float shakeAmountMult;
+
+    public shakePos shakeScript;
+
     public int startProcess;
     public int chainBreakTime;
+    public int dropPlayer;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -21,10 +28,14 @@ public class StartTheGame : MonoBehaviour
         }
         else if (startProcess > 0)
         {
-            startProcess--;
+            startProcess -= 15;
+        }
+        else
+        {
+            startProcess = 0;
         }
 
-        if (chain1.GetComponent<StartChains>().doneRetracting == true)
+        if (startProcess == dropPlayer)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             
@@ -33,6 +44,23 @@ public class StartTheGame : MonoBehaviour
         if (startProcess == chainBreakTime )
         {
             BreakChains();
+        }
+    }
+
+    private void Update()
+    {
+        float shakeTop = (startProcess - startShake);
+        float shakeBottom = (chainBreakTime - startShake);
+        float shake = shakeTop / shakeBottom;
+        shake = Mathf.Clamp(shake, 0, 1);
+
+        shakeScript.speed = Mathf.Pow(shake * shakeSpeedMult, 2);
+        shakeScript.amount = shake * shakeAmountMult;
+
+        if (startProcess >= chainBreakTime)
+        {
+            shakeScript.gameObject.transform.position = player.transform.position;
+            shakeScript.enabled = false;
         }
     }
 
