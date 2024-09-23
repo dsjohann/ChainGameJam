@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class StartTheGame : MonoBehaviour
 {
+    //Dalton ik this si so fucking bad. It would be better if I was more sober. Sorry <3
+
     public GameObject chain1;
     public GameObject chain2;
     public GameObject player;
     public GameObject text;
 
-    public float startShake;
-    public float shakeSpeedMult;
-    public float shakeAmountMult;
+    public float startShakePlayer;
+    public float shakeSpeedMultPlayer;
+    public float shakeAmountMultPlayer;
 
-    public shakePos shakeScript;
+    public shakePos shakeScriptPlayer;
+
+    public float startShakeCamera;
+    public float shakeSpeedMultCamera;
+    public float shakeAmountMultCamera;
+
+    public shakePos shakeScriptCamera;
 
     public int startProcess;
     public int chainBreakTime;
@@ -49,18 +57,33 @@ public class StartTheGame : MonoBehaviour
 
     private void Update()
     {
-        float shakeTop = (startProcess - startShake);
-        float shakeBottom = (chainBreakTime - startShake);
-        float shake = shakeTop / shakeBottom;
-        shake = Mathf.Clamp(shake, 0, 1);
+        float shakeTopP = (startProcess - startShakePlayer);
+        float shakeBottomP = (chainBreakTime - startShakePlayer);
+        float shakeP = shakeTopP / shakeBottomP;
+        shakeP = Mathf.Clamp(shakeP, 0, 1);
 
-        shakeScript.speed = Mathf.Pow(shake * shakeSpeedMult, 2);
-        shakeScript.amount = shake * shakeAmountMult;
+        shakeScriptPlayer.speed = Mathf.Pow(shakeP * shakeSpeedMultPlayer, 2);
+        shakeScriptPlayer.amount = shakeP * shakeAmountMultPlayer;
 
         if (startProcess >= chainBreakTime)
         {
-            shakeScript.gameObject.transform.position = player.transform.position;
-            shakeScript.enabled = false;
+            shakeScriptPlayer.gameObject.transform.position = player.transform.position;
+            shakeScriptPlayer.enabled = false;
+        }
+
+
+
+        float shakeTopC = (startProcess - startShakeCamera);
+        float shakeBottomC = (chainBreakTime - startShakeCamera);
+        float shakeC = shakeTopC / shakeBottomC;
+        shakeC = Mathf.Clamp(shakeC, 0, 1);
+
+        shakeScriptCamera.speed = Mathf.Pow(shakeC * shakeSpeedMultCamera, 2);
+        shakeScriptCamera.amount = shakeC * shakeAmountMultCamera;
+
+        if (startProcess >= chainBreakTime && shakeScriptCamera.enabled)
+        {
+            shakeScriptCamera.enabled = false;
         }
     }
 

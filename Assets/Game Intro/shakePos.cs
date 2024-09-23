@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class shakePos : MonoBehaviour
 {
-    Vector2 startingPos;
+    Vector3 startingPos;
     public float speed;
     public float amount;
 
@@ -13,8 +13,8 @@ public class shakePos : MonoBehaviour
         startingPos = transform.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.position = startingPos + new Vector2(Mathf.Sin(Time.time * speed) * amount, Mathf.Cos(Time.time * speed) * amount);
+        transform.position = startingPos + new Vector3(Mathf.Sin(Time.time * speed) * amount, Mathf.Cos(Time.time * speed) * amount , 0);
     }
 }
