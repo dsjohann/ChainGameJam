@@ -63,3 +63,6 @@ TagManager:
   - name: Player
     uniqueID: 4205205895
     locked: 0
+  - name: Screen Cover
+    uniqueID: 3836004097
+    locked: 0
