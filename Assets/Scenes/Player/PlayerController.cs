@@ -20,6 +20,13 @@ namespace TarodevController
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
 
+        public GameObject bodyVisual;
+        public float maxWidth;
+        public float colliderWidth;
+        public float scaleSpeed;
+
+        private float width;
+
         #region Interface
 
         public Vector2 FrameInput => _frameInput.Move;
@@ -34,7 +41,7 @@ namespace TarodevController
         {
             _rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<BoxCollider2D>();
-
+            width = maxWidth;
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
         }
 
@@ -42,6 +49,17 @@ namespace TarodevController
         {
             _time += Time.deltaTime;
             GatherInput();
+
+            // resizing code
+            if (Input.GetAxisRaw("Vertical") < -0.5f) {
+                width = Mathf.MoveTowards(width, maxWidth / 2, scaleSpeed * Time.deltaTime);
+            } else {
+                width = Mathf.MoveTowards(width, maxWidth, scaleSpeed * Time.deltaTime);
+            }
+            Debug.Log(width);
+            GetComponent<BoxCollider2D>().size = new Vector2(width * colliderWidth / maxWidth, colliderWidth);
+            bodyVisual.GetComponent<SpriteRenderer>().size = new Vector2(width, maxWidth);
+
         }
 
         private void GatherInput()
