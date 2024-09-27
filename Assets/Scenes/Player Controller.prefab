@@ -169,7 +169,7 @@ MonoBehaviour:
   bodyVisual: {fileID: 7542822672292701702}
   maxWidth: 0.96
   colliderWidth: 0.94
-  scaleSpeed: 0.8
+  scaleSpeed: 4
 --- !u!50 &2251768510551295006
 Rigidbody2D:
   serializedVersion: 4
