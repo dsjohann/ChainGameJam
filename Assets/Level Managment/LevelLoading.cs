@@ -7,9 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoading : MonoBehaviour
 {
+    LevelLocker levelLocker;
+    private void Start()
+    {
+        levelLocker = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<LevelLocker>();
+    }
 
     public void NewScene()
     {
+        levelLocker.levelUnlocked[SceneManager.GetActiveScene().buildIndex + 1] = true;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 
