@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoading : MonoBehaviour
 {
+    LevelUnlock levelUnlock;
+    private void Start()
+    {
+        levelUnlock = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<LevelUnlock>();
+    }
 
     public void NewScene()
     {
