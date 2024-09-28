@@ -5,12 +5,11 @@ using UnityEngine;
 public class LevelLocker : MonoBehaviour
 {
     public Dictionary<int, bool> levelUnlocked = new Dictionary<int, bool>();
-    public float test;
 
-    private void Start()
+    private void Awake()
     {
         levelUnlocked.Add(0, true);
-        for (int i = 1; i < 23; i++)
+        for (int i = 1; i < 28; i++)
         {
             levelUnlocked.Add(i, false);
         }
