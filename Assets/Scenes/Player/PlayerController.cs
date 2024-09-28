@@ -178,7 +178,7 @@ namespace TarodevController
             }
             else
             {
-                _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
+                _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed * bodyVisual.GetComponent<SpriteRenderer>().size.x / maxWidth, _stats.Acceleration * Time.fixedDeltaTime);
             }
         }
 
