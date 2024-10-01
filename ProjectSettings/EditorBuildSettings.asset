@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lvl s3.unity
     guid: 2bed4e0789ec41a4d9f982f9fca92405
+  - enabled: 1
+    path: Assets/Scenes/Fruit Collect.unity
+    guid: 7e7dce8c49bece745891bd96b52e7fb0
   m_configObjects: {}

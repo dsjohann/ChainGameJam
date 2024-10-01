@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 769660874}
   - component: {fileID: 769660875}
   - component: {fileID: 769660876}
+  - component: {fileID: 769660877}
   m_Layer: 0
   m_Name: Chain 1
   m_TagString: Untagged
@@ -619,6 +620,19 @@ MonoBehaviour:
   chainGrow: 0.02
   retract: 0
   doneRetracting: 0
+--- !u!114 &769660877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769660873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e8d1e629c58184b9a684aa49fa0a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldSprite: {fileID: 21300000, guid: 01349af2cd430334598cd12410504988, type: 3}
 --- !u!1 &797148762
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1011,7 @@ GameObject:
   - component: {fileID: 1239929213}
   - component: {fileID: 1239929214}
   - component: {fileID: 1239929215}
+  - component: {fileID: 1239929216}
   m_Layer: 0
   m_Name: Chain 1 (3)
   m_TagString: Untagged
@@ -1087,6 +1102,19 @@ MonoBehaviour:
   chainGrow: 0.02
   retract: 0
   doneRetracting: 0
+--- !u!114 &1239929216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239929212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e8d1e629c58184b9a684aa49fa0a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldSprite: {fileID: 21300000, guid: 01349af2cd430334598cd12410504988, type: 3}
 --- !u!1 &1967632066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6083287516233150884, guid: dce19c8ae9ba80c4db04526b258f8263, type: 3}
@@ -1184,6 +1212,14 @@ PrefabInstance:
     - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: orthographic size
       value: 5.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.0003078878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.9993842
       objectReference: {fileID: 0}
     - target: {fileID: 2146901413935142714, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_LocalPosition.x

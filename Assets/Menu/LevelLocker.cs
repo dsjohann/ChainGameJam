@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLocker : MonoBehaviour
 {
@@ -11,7 +12,15 @@ public class LevelLocker : MonoBehaviour
         levelUnlocked.Add(0, true);
         for (int i = 1; i < 28; i++)
         {
-            levelUnlocked.Add(i, false);
+            if (SceneManager.GetActiveScene().buildIndex >= i)
+            {
+                levelUnlocked.Add(i, true);
+            }
+            else
+            {
+                levelUnlocked.Add(i, false);
+            }
+
         }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012679410559990207}
   - component: {fileID: 8477795274088119506}
+  - component: {fileID: -9142919362472632078}
   m_Layer: 0
   m_Name: Chain
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1302216495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a806c5fcafed3ee4fb01cfabd8ab1224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-9142919362472632078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168861593468322550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e8d1e629c58184b9a684aa49fa0a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldSprite: {fileID: 21300000, guid: 01349af2cd430334598cd12410504988, type: 3}

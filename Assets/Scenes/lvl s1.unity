@@ -368,6 +368,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8752494041782888519, guid: 93bceddd49d80dc44af07d6c110656bf, type: 3}
+      propertyPath: onScreen
+      value: 
+      objectReference: {fileID: 21300000, guid: 17f633490389ec9488035268b877ac51, type: 3}
+    - target: {fileID: -8752494041782888519, guid: 93bceddd49d80dc44af07d6c110656bf, type: 3}
+      propertyPath: offScreen
+      value: 
+      objectReference: {fileID: 21300000, guid: 87e1ffc8138147140b07384bd6983ed8, type: 3}
+    - target: {fileID: -8752494041782888519, guid: 93bceddd49d80dc44af07d6c110656bf, type: 3}
       propertyPath: KeyboardText
       value: lvl A
       objectReference: {fileID: 0}
@@ -375,6 +383,10 @@ PrefabInstance:
       propertyPath: controllerText
       value: lvl A
       objectReference: {fileID: 0}
+    - target: {fileID: 1035386291776061937, guid: 93bceddd49d80dc44af07d6c110656bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17f633490389ec9488035268b877ac51, type: 3}
     - target: {fileID: 1923207267694929571, guid: 93bceddd49d80dc44af07d6c110656bf, type: 3}
       propertyPath: m_Name
       value: Level Screen Variant
@@ -495,19 +507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.019444406
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.046479136
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9611112
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.9070417
       objectReference: {fileID: 0}
     - target: {fileID: 2146901413935142714, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_LocalPosition.x

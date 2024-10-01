@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ee912c122bbeb4541886d2a8c0468512, type: 3}
   - {fileID: 21300000, guid: 5e88872a14125754faf35502126e3360, type: 3}
   cycleTime: 30
+  emptySprite: {fileID: 21300000, guid: c501fc9f50e25f94a9f275ec5e080708, type: 3}
 --- !u!4 &747184504
 Transform:
   m_ObjectHideFlags: 0
@@ -591,6 +592,14 @@ PrefabInstance:
     - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: orthographic size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.0003078878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390688624423640673, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.9993842
       objectReference: {fileID: 0}
     - target: {fileID: 2146901413935142714, guid: 40725f1f61ed9784885c325a531bf4c0, type: 3}
       propertyPath: m_LocalPosition.x

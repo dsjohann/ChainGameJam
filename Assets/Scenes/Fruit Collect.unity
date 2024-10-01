@@ -154,12 +154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TMP1: {fileID: 1344755061}
-  TMP2: {fileID: 497873517}
-  TMP3: {fileID: 2027783500}
+  TMP2: {fileID: 2027783500}
+  TMP3: {fileID: 497873517}
   fruitSprite: {fileID: 1097912128}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  textColor: {r: 0.18431373, g: 0.34117648, b: 0.3254902, a: 0}
   fadeTime: 3
-  bottomFadeDelay: 2
+  bottomFadeDelay: 0
 --- !u!4 &94420061
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.2, y: -199.8}
+  m_AnchoredPosition: {x: -59.9, y: 33.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497873517
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4283651887
+  m_fontColor: {r: 0.18431373, g: 0.34117648, b: 0.3254902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 97.93
+  m_fontSizeBase: 97.93
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -536,7 +536,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0.38823533, g: 0.67058825, b: 0.24705884, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -685,8 +685,8 @@ Transform:
   m_GameObject: {fileID: 1097912127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -3.82, z: 0}
-  m_LocalScale: {x: 0.74, y: 0.74, z: 0.74}
+  m_LocalPosition: {x: 1.4399999, y: 0.57, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1344755060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -748,15 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CONGRATS.
-
-    YOU HAVE ESCAPED YOUR CHAINS.
-
-    NOW GO AND BE FREE,
-    LITTLE BLOB.
-
-
-    THANK YOU FOR PLAYING.'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c39e1675cb4bb0b44875ff81bdf2e772, type: 2}
   m_sharedMaterial: {fileID: -3897777211507254225, guid: c39e1675cb4bb0b44875ff81bdf2e772, type: 2}
@@ -935,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29, y: 116.85}
+  m_AnchoredPosition: {x: -29, y: 152.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2027783500
@@ -958,17 +950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CONGRATS.
-
-    YOU HAVE NOT ONLY ESCAPED YOUR CHAINS,
-
-    YOU HAVE MASTERED
-    THEM.
-
-    NOW GO AND DOMINATE, LITTLE BLOB.
-
-
-    THANK YOU FOR STAYING CURIOUS.'
+  m_text: YOU FEEL BONDED WITH YOUR CHAINS.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c39e1675cb4bb0b44875ff81bdf2e772, type: 2}
   m_sharedMaterial: {fileID: -3897777211507254225, guid: c39e1675cb4bb0b44875ff81bdf2e772, type: 2}
@@ -977,8 +959,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4283651887
+  m_fontColor: {r: 0.18431373, g: 0.34117648, b: 0.3254902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -995,8 +977,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42.4
+  m_fontSizeBase: 42.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
