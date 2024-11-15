@@ -17,6 +17,8 @@ public class EndingTextManager : MonoBehaviour
 
     private float startTime;
 
+    public float secondFade;
+
     private void Start()
     {
         startTime = Time.time;
@@ -26,7 +28,7 @@ public class EndingTextManager : MonoBehaviour
         float top = (Time.time - startTime);
         float bottom = (fadeTime);
         float fade = top / bottom;
-        float secondFade = (top - bottomFadeDelay) / bottom;
+        secondFade = (top - bottomFadeDelay) / bottom;
         fade = Mathf.Clamp(fade, 0, 1);
         secondFade = Mathf.Clamp(secondFade, 0, 1);
 
